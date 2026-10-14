@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+config.json
+machine-id
+*.zip
+*.zip.part
+*.bak-*
+*.conflict-*
+
+# 守护进程运行态（都在 %LOCALAPPDATA%\codex-sync 下，这里只防手滑）
+*.log
+*.log.1
+daemon.pid
+daemon.stop
+.last-pull-*

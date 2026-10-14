@@ -1,0 +1,18 @@
+{
+  "_comment": "复制到 %LOCALAPPDATA%\\codex-sync\\config.json（或 $CODEX_SYNC_CONFIG 指定目录）后按需修改。",
+  "sync_root": "D:\\Cloud\\codex-sync",
+  "machine_name": "我的笔记本",
+  "machine_id": "",
+  "codex_process_hints": ["codex", "chatgpt"],
+  "codex_process_ignore": ["service"],
+
+  "_daemon_comment": "守护进程节奏，单位秒。只做 push 就把 autopull 设为 false。",
+  "daemon": {
+    "push_interval": 900,
+    "pull_interval": 300,
+    "start_delay": 20,
+    "pull_on_start": true,
+    "autopull": true,
+    "max_log_kb": 1024
+  }
+}

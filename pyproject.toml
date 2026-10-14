@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-sync"
+version = "0.1.0"
+description = "OpenAI Codex 全资产双向同步 —— 通过任意共享目录在机器之间同步会话、索引、元数据库、技能与配置"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "kid941005" }]
+keywords = ["codex", "sync", "backup", "rollout", "session"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: Microsoft :: Windows",
+  "Topic :: Utilities",
+]
+dependencies = []
+
+[project.scripts]
+cx-sync = "codex_sync.cli:main"
+cx-daemon = "codex_sync.daemon:main"
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+codex_sync = ["default-manifest.json"]

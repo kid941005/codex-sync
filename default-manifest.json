@@ -1,0 +1,119 @@
+{
+  "manifest_version": 1,
+
+  "sync_files": [
+    "config.toml",
+    "session_index.jsonl",
+    "AGENTS.md",
+    "model-catalog.json",
+    ".codex-global-state.json",
+    "installation_id"
+  ],
+
+  "sync_dirs": [
+    "sessions",
+    "skills",
+    "prompts",
+    "themes",
+    "pets"
+  ],
+
+  "databases": [
+    {
+      "glob": "state_*.sqlite",
+      "label": "state",
+      "tables": [
+        "threads",
+        "projects",
+        "project_roots",
+        "thread_sections",
+        "thread_dynamic_tools",
+        "thread_spawn_edges",
+        "thread_attachments"
+      ],
+      "upsert": {
+        "threads": "updated_at_ms",
+        "projects": "updated_at_ms"
+      }
+    },
+    {
+      "glob": "memories_*.sqlite",
+      "label": "memories",
+      "tables": ["stage1_outputs"],
+      "upsert": {
+        "stage1_outputs": "generated_at"
+      }
+    },
+    {
+      "glob": "goals_*.sqlite",
+      "label": "goals",
+      "tables": ["thread_goals"],
+      "upsert": {
+        "thread_goals": "updated_at_ms"
+      }
+    }
+  ],
+
+  "never_segments": [
+    ".sandbox",
+    ".sandbox-bin",
+    ".sandbox-secrets",
+    ".tmp",
+    "tmp",
+    "logs",
+    "browser",
+    "cache",
+    "plugins",
+    "vendor_imports",
+    "mcp-oauth-locks",
+    "thread-writer-locks",
+    "sqlite",
+    "dictation-history",
+    "computer-use",
+    "code-review-plugin",
+    ".system",
+    "node_modules",
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+    ".idea",
+    ".vscode",
+    "auth"
+  ],
+
+  "never_suffix": [
+    ".db",
+    ".db-shm",
+    ".db-wal",
+    ".sqlite-shm",
+    ".sqlite-wal",
+    ".key",
+    ".pem",
+    ".pfx",
+    ".tmp",
+    ".log",
+    ".swp",
+    ".env"
+  ],
+
+  "sensitive_words": [
+    "secret",
+    "credential",
+    "password",
+    "passwd",
+    "apikey",
+    "api-key",
+    "api_key",
+    "token",
+    "cookie",
+    "auth-state",
+    "auth.json",
+    "private-key",
+    "privatekey"
+  ],
+
+  "extra_globs": [],
+
+  "max_file_mb": 200
+}
